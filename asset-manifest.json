@@ -1,13 +1,13 @@
 {
   "main.css": "/sandbox-firebase-voting/static/css/main.5e9d22df.chunk.css",
-  "main.js": "/sandbox-firebase-voting/static/js/main.2e5d7022.chunk.js",
-  "main.js.map": "/sandbox-firebase-voting/static/js/main.2e5d7022.chunk.js.map",
+  "main.js": "/sandbox-firebase-voting/static/js/main.510bca2f.chunk.js",
+  "main.js.map": "/sandbox-firebase-voting/static/js/main.510bca2f.chunk.js.map",
   "static/js/1.12e5135d.chunk.js": "/sandbox-firebase-voting/static/js/1.12e5135d.chunk.js",
   "static/js/1.12e5135d.chunk.js.map": "/sandbox-firebase-voting/static/js/1.12e5135d.chunk.js.map",
   "runtime~main.js": "/sandbox-firebase-voting/static/js/runtime~main.dc606c3c.js",
   "runtime~main.js.map": "/sandbox-firebase-voting/static/js/runtime~main.dc606c3c.js.map",
   "static/css/main.5e9d22df.chunk.css.map": "/sandbox-firebase-voting/static/css/main.5e9d22df.chunk.css.map",
   "index.html": "/sandbox-firebase-voting/index.html",
-  "precache-manifest.958cf75047fb1bf6254f93d8b968bd82.js": "/sandbox-firebase-voting/precache-manifest.958cf75047fb1bf6254f93d8b968bd82.js",
+  "precache-manifest.393a1c4f881d262ac56d9dface2934c2.js": "/sandbox-firebase-voting/precache-manifest.393a1c4f881d262ac56d9dface2934c2.js",
   "service-worker.js": "/sandbox-firebase-voting/service-worker.js"
 }
