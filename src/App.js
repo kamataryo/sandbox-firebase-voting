@@ -1,28 +1,12 @@
-import React, { Component } from 'react'
-import logo from './logo.svg'
+import React from 'react'
 import './App.css'
 
-class App extends Component {
-  /**
-   * shouldComponentUpdate
-   * @param  {object} nextProps next props
-   * @param  {object} nextState next state
-   * @return {boolean}          should component update
-   */
-  shouldComponentUpdate() {
-    return false
-  }
-
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={ logo } className="App-logo" alt="logo" />
-          <p>{'Hello'}</p>
-        </header>
-      </div>
-    )
-  }
-}
+export const App = () => (
+  <div className={ 'App' }>
+    <main className={ 'App-body' }>
+      <p>{'Hello'}</p>
+    </main>
+  </div>
+)
 
 export default App
