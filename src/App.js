@@ -1,9 +1,8 @@
 import React from 'react'
-import { useFirebase } from './hooks'
+import { useFirebase, resetFirebase } from './hooks'
 import { PieChart, Pie, Cell } from 'recharts'
 import Button from './components/button'
 
-import './App.css'
 import { AppContainer, Dl, Dt, Dd } from './components/layout'
 
 import { purple, chartColors } from './colors'
@@ -16,8 +15,8 @@ const options = [
 ]
 
 export const App = () => {
-  const [{ data, isReady }, setData] = useFirebase()
-  console.log(isReady)
+  const [{ data, isReady }, incrementValueOf] = useFirebase()
+
   if (!isReady) {
     return (
       <main className={ 'App' }>
@@ -43,15 +42,14 @@ export const App = () => {
                 <span>{`現在 ${data[id] || 0}票`}</span>
                 <Button
                   color={ chartColors[index % chartColors.length] }
-                  onClick={ () =>
-                    setData({ ...data, [id]: (data[id] || 0) + 1 })
-                  }
+                  onClick={ () => incrementValueOf(id) }
                 >
                   {'+1'}
                 </Button>
               </Dd>
             </Dl>
           ))}
+          <button onClick={ resetFirebase }>{'全てを無に帰す'}</button>
         </div>
         <div>
           <PieChart width={ 700 } height={ 500 }>
@@ -65,11 +63,6 @@ export const App = () => {
               innerRadius={ 60 }
               outerRadius={ 100 }
               fill={ purple }
-              label={ a =>
-                a.percent === 0
-                  ? null
-                  : a.name + ' ' + Math.round(a.percent * 100) + '%'
-              }
               labelLine={ false }
             >
               {chartData.map(({ id }, index) => (

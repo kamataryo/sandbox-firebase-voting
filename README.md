@@ -10,5 +10,7 @@ Voting App example with Firebase.
 $ git clone git@github.com:kamataryo/sandbox-firebase-voting.git
 $ cd sandbox-firebase-voting
 $ yarn
+$ cp src/config.sample.js src/config.js
+$ vim src/config.js # Fill with your firebase config value
 $ npm start
 ```
