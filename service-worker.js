@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/sandbox-firebase-voting/precache-manifest.4286b4eaa2e8121b8aa3e4fbc7a17e56.js"
+  "/sandbox-firebase-voting/precache-manifest.958cf75047fb1bf6254f93d8b968bd82.js"
 );
 
 workbox.clientsClaim();
