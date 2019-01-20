@@ -3,15 +3,15 @@ import { useFirebase, resetFirebase } from './hooks'
 import { PieChart, Pie, Cell } from 'recharts'
 import Button from './components/button'
 
-import { AppContainer, Dl, Dt, Dd } from './components/layout'
+import { AppContainer, MainContainer, Dl, Dt, Dd } from './components/layout'
 
 import { purple, chartColors } from './colors'
 
 const options = [
-  { id: 0, name: 'ぎょうざ' },
-  { id: 1, name: 'しゅうまい' },
-  { id: 2, name: 'あげそば' },
-  { id: 3, name: 'ラーメン' },
+  { id: 0, name: '台南担仔麺' },
+  { id: 1, name: '魯肉飯' },
+  { id: 2, name: '虱目魚粥' },
+  { id: 3, name: '排骨飯' },
 ]
 
 export const App = () => {
@@ -34,43 +34,55 @@ export const App = () => {
   return (
     <main className={ 'App' }>
       <AppContainer>
-        <div>
-          {options.map(({ id, name }, index) => (
-            <Dl key={ id }>
-              <Dt>{name}</Dt>
-              <Dd>
-                <span>{`現在 ${data[id] || 0}票`}</span>
-                <Button
-                  color={ chartColors[index % chartColors.length] }
-                  onClick={ () => incrementValueOf(id) }
-                >
-                  {'+1'}
-                </Button>
-              </Dd>
-            </Dl>
-          ))}
+        <h1>
+          <small>{'リアルタイム投票で決める'}</small>
+          <br />
+          {'最強台湾料理決定戦'}
+        </h1>
+        <MainContainer>
+          <div>
+            {options.map(({ id, name }, index) => (
+              <Dl key={ id }>
+                <Dt>{name}</Dt>
+                <Dd>
+                  <span>{`現在 ${data[id] || 0}票`}</span>
+                  <Button
+                    color={ chartColors[index % chartColors.length] }
+                    onClick={ () => incrementValueOf(id) }
+                  >
+                    {'+1'}
+                  </Button>
+                </Dd>
+              </Dl>
+            ))}
+          </div>
+          <div>
+            <PieChart width={ 210 } height={ 210 }>
+              <Pie
+                animationDuration={ 200 }
+                data={ chartData }
+                dataKey={ 'value' }
+                nameKey={ 'name' }
+                cx={ '50%' }
+                cy={ '50%' }
+                innerRadius={ 60 }
+                outerRadius={ 100 }
+                fill={ purple }
+                labelLine={ false }
+              >
+                {chartData.map(({ id }, index) => (
+                  <Cell
+                    key={ id }
+                    fill={ chartColors[index % chartColors.length] }
+                  />
+                ))}
+              </Pie>
+            </PieChart>
+          </div>
+        </MainContainer>
+        <p>
           <button onClick={ resetFirebase }>{'全てを無に帰す'}</button>
-        </div>
-        <div>
-          <PieChart width={ 700 } height={ 500 }>
-            <Pie
-              animationDuration={ 200 }
-              data={ chartData }
-              dataKey={ 'value' }
-              nameKey={ 'name' }
-              cx={ '50%' }
-              cy={ '50%' }
-              innerRadius={ 60 }
-              outerRadius={ 100 }
-              fill={ purple }
-              labelLine={ false }
-            >
-              {chartData.map(({ id }, index) => (
-                <Cell key={ id } fill={ chartColors[index % chartColors.length] } />
-              ))}
-            </Pie>
-          </PieChart>
-        </div>
+        </p>
       </AppContainer>
     </main>
   )
