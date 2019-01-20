@@ -17,3 +17,7 @@ small {
   font-weight: lighter;
   font-size: calc(10px + 2vmin);
 }
+
+a {
+  color: gray;
+}

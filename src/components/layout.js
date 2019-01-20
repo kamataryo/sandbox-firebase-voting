@@ -11,7 +11,7 @@ export const Dt = styled.dt`
 
 export const Dd = styled.dd`
   margin: 0;
-  width: 180px;
+  width: 220px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

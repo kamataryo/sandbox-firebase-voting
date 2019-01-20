@@ -34,11 +34,22 @@ export const App = () => {
   return (
     <main className={ 'App' }>
       <AppContainer>
-        <h1>
-          <small>{'リアルタイム投票で決める'}</small>
-          <br />
-          {'最強台湾料理決定戦'}
-        </h1>
+        <header>
+          <h1>
+            <small>{'リアルタイム投票で決める'}</small>
+            <br />
+            {'最強台湾料理決定戦'}
+          </h1>
+          <p>
+            {'GitHub: '}
+            <a
+              href="https://github.com/kamataryo/sandbox-firebase-voting"
+              target={ '_blank' }
+            >
+              {'kamataryo/sandbox-firebase-voting'}
+            </a>
+          </p>
+        </header>
         <MainContainer>
           <div>
             {options.map(({ id, name }, index) => (
@@ -80,9 +91,11 @@ export const App = () => {
             </PieChart>
           </div>
         </MainContainer>
-        <p>
-          <button onClick={ resetFirebase }>{'全てを無に帰す'}</button>
-        </p>
+        <div>
+          <p>
+            <button onClick={ resetFirebase }>{'全てを無に帰す'}</button>
+          </p>
+        </div>
       </AppContainer>
     </main>
   )
