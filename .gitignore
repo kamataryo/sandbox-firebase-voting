@@ -63,3 +63,5 @@ typings/
 .next
 
 src/config.js
+
+/build
