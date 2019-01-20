@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { useFirebase } from './hooks'
 import { PieChart, Pie, Cell } from 'recharts'
+import Button from './components/button'
 
 import './App.css'
-import Button from './components/button'
 import { AppContainer, Dl, Dt, Dd } from './components/layout'
 
 import { purple, chartColors } from './colors'
@@ -15,12 +16,20 @@ const options = [
 ]
 
 export const App = () => {
-  const [result, setResult] = useState({})
+  const [{ data, isReady }, setData] = useFirebase()
+  console.log(isReady)
+  if (!isReady) {
+    return (
+      <main className={ 'App' }>
+        <AppContainer>{'loading...'} </AppContainer>
+      </main>
+    )
+  }
 
   const chartData = options.map(({ id, name }) => ({
     id,
     name,
-    value: result[id],
+    value: data[id],
   }))
 
   return (
@@ -31,11 +40,11 @@ export const App = () => {
             <Dl key={ id }>
               <Dt>{name}</Dt>
               <Dd>
-                <span>{`現在 ${result[id] || 0}票`}</span>
+                <span>{`現在 ${data[id] || 0}票`}</span>
                 <Button
                   color={ chartColors[index % chartColors.length] }
                   onClick={ () =>
-                    setResult({ ...result, [id]: (result[id] || 0) + 1 })
+                    setData({ ...data, [id]: (data[id] || 0) + 1 })
                   }
                 >
                   {'+1'}
