@@ -4,6 +4,26 @@
 
 Voting App example with Firebase.
 
+## prerequisite
+
+Prepare firebase web app and put a rules like below.
+
+```json
+{
+  "rules": {
+    "data": {
+      ".read": true,
+      ".write": true,
+      "$option_id": {
+        ".read": true,
+        ".write": true,
+        ".validate": "newData.isNumber()"
+      }
+    }
+  }
+}
+```
+
 ## development
 
 ```shell
