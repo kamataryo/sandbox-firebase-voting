@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/sandbox-firebase-voting/static/js/runtime~main.dc606c3c.js"
   },
   {
-    "revision": "73b58bd357355e36c6751d4f2aaadeeb",
+    "revision": "f2aaaf13a41eda48d2cc6454f3459be9",
     "url": "/sandbox-firebase-voting/index.html"
   }
 ];
